@@ -1,0 +1,67 @@
+# general nav
+alias ~="cd ~"
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../.."
+alias repos="cd ~/repos"
+alias la="ls -a"
+alias ll="ls -la"
+alias f="open -a Finder ./"
+
+# shell
+alias s="source"
+alias szsh="s ~/.zshrc"
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy"
+
+# make
+alias ms="make start"
+alias mb="make build"
+alias mt="make test"
+alias mss="make stop"
+
+# git (some use things defined in .gitconfig)
+alias glg="git l"
+alias gllg="git ll"
+alias glllg="git lll"
+alias gpl="git pull"
+alias gap="git add . -p"
+alias gcm="git commit -m"
+alias gca="git commit --amend"
+alias gcom="git checkout $(git_main_branch)"
+alias gb="git branch --list"
+alias gbrn="git branch -m"
+alias gcln="git branch --merged | egrep -v '(^\*|master|main|production|dev|develop)' | xargs git branch -d; echo ''" # delete merged branches
+alias gfu="git fetch upstream" # fetch upstream (forked) changes
+alias gsync="gmom" # sync with forked repo's main branch
+
+# general docker
+alias dcup="docker-compose up"
+alias dcdown="docker-compose down"
+
+# rails
+alias be="bundle exec"
+alias rake="bundle exec rake"
+alias rspec="bundle exec rspec"
+alias rubocop="bundle exec rubocop -a"
+alias seed="rails db:seed"
+alias create="rails db:create"
+alias migrate="rails db:migrate"
+alias rollback="rails db:rollback"
+alias rs="rails server"
+alias rc="rails console"
+alias routes="rake routes"
+
+# yarn
+alias ys="yarn start"
+alias yt="yarn test"
+alias yl="yarn lint"
+alias ylf="yarn lint --fix"
+
+# heroku
+alias herokurc="heroku run rails console"
+
+# sdge
+alias sdge= "cd ~/repos/sdge_root"
+alias sdgepull="cd ~/repos/sdge_root/sdge && git checkout main && git pull && cd ../sdge_api && git checkout main && git pull && cd ../sdge_frontend && git checkout main && git pull && cd ../sdge_oms && git checkout main && git pull && cd ../sdge_vesta && git checkout main && git pull && cd ../sdge_dev && git checkout main && git pull"
+alias dcea="docker-compose exec api bundle exec"

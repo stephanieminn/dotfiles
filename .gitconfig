@@ -1,0 +1,51 @@
+[github]
+  user = stephanieminn
+[user]
+	name = Stephanie Minn
+	email = 12875392+stephanieminn@users.noreply.github.com
+[apply]
+  whitespace = nowarn
+[alias]
+  co = checkout
+  ac = !git add -A && git commit
+  st = status
+  stat = status
+  br = branch
+  gst = status
+  s = status
+  ci = commit
+  cim = commit -m
+  cm = commit -m
+  df = diff --color-words
+  l = log --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=10
+  ll = log --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=20
+  lll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=100
+  llll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=400
+  # this = !git init && git add . && git commit -m "Initial commit"
+  # amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+  cln = "!f() { \
+        if [ ! -z $1 ]; then \
+          git remote prune origin && \
+          if git show-ref refs/heads/$1; then \
+            echo 'checking out' $1 && git checkout $1; \
+            git fetch --all && \
+            git pull && \
+            git branch --merged master | grep -vE 'dev$| master$| staging$| testing$ |develop$' | xargs -n 1 git branch -d; \
+            git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D; \
+          else \
+            echo '\n\nBranch does not exist:' $1 '\n\n'; \
+          fi; \
+        else \
+          echo '\n\nUsage: git cln [branch]\n\n'; \
+        fi; \
+       }; f"
+[color]
+  ui = true
+  pager = true
+  interactive = auto
+[core]
+	excludesfile = /Users/stephanieminn/.gitignore_global
+  pager = less -r -X -F
+  editor = vim
+[push]
+  default = upstream
