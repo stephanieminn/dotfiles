@@ -54,10 +54,12 @@ cd $HOME
 source $HOME/dotfiles/.macos
 
 # Symlink dotfiles
+echo "Symlinking dotfiles..."
 ./symlinks.sh
 
 # may fix missing icons?
 # sudo rm -rfv /Library/Preferences/com.apple.dock.plist
 
 # restart
+echo "Setup complete. Restarting..."
 sudo shutdown -r now
