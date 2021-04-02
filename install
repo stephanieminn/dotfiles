@@ -53,6 +53,9 @@ brew services start postgresql > /dev/null 2>&1
 cd $HOME
 source $HOME/dotfiles/.macos
 
+# Symlink dotfiles
+./symlinks.sh
+
 # may fix missing icons?
 # sudo rm -rfv /Library/Preferences/com.apple.dock.plist
 
